@@ -1,0 +1,47 @@
+select{
+  height: 200px;
+  width: 150px;
+  border-width: medium;
+  margin-right: 150px;
+  font-family: fantasy;
+  display: inline-block;
+
+}
+.container{
+  display: inline-block;
+}
+.container1{
+  display: inline-block;
+}
+option{
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+button {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    
+
+}
+
+
+
+button:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.tble1 {
+    background-color: #f1f1f1;
+    color: black;
+
+}
+
+.tble2 {
+    background-color: #f1f1f1;
+    color: black;
+    margin: 20px;
+}
