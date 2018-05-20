@@ -8,16 +8,6 @@
 
  var devMode = false;
 
-
- gulp.task('css',function(){
-   gulp.src(styles)
-       .pipe(concat('main.css'))
-       .pipe(gulp.dest('./dist/css'))
-       .pipe(browserSync.reload({
-         stream: true
-       }));
- });
-
  gulp.task('js',function(){
    gulp.src(scripts)
        .pipe(concat('scripts.js'))
@@ -36,7 +26,8 @@
  });
 
  gulp.task('sass',function(){
-   gulp.src('./sass/**/*.scss')
+   return gulp.src('./src/css/*.scss')
+       .pipe(sass())
        .pipe(gulp.dest('./dist/css'))
        .pipe(browserSync.reload({
          stream: true
@@ -44,7 +35,7 @@
  });
 
  gulp.task('build',function(){
-   gulp.start(['css','js','html']);
+   gulp.start(['sass', 'js','html']);
  });
  gulp.task('browser-sync', function(){
    browserSync.init(null, {
@@ -58,8 +49,7 @@
 gulp.task('start',function(){
   devMode = true;
   gulp.start(['build','browser-sync']);
-  gulp.watch(['./src/css/**/*.css'],['css']);
-  gulp.watch(['./src/sass/**/*.scss'],['sass']);
+  gulp.watch(['./src/css/*.scss'],['sass']);
   gulp.watch(['./src/js/**/*.js'],['js']);
   gulp.watch(['./src/templates/**/*.html'],['html']);
 

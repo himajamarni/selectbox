@@ -2,21 +2,28 @@
 <h1> Select-Box</h1>
 <div class="container">
   <h2> List1</h2>
+
   <select multiple="multiple"
    ng-model="list1"
-   ng-options="i as i.name for i in list1Items[selectOption] ">
-
-</select>
+   ng-options="i as i.name for i in list1Items"></select>
 </div>
 
 <button class="left" ng-click = "btnLeft()" >&laquo; List1</button>
 <button class="right" ng-click = "btnRight()">List2 &raquo;</button>
 
 <div class="container1">
+<!-- used filters to order names alphabetically e.g. | filter : '<filter-value>'-->
 <h2>List2</h2>
   <select multiple="multiple"
-   ng-model="list2"
-   ng-options="i as i.name for i  in list2Items[selectOption] ">
+   ng-model="list2 ">
+  <option ng-repeat = "item in list2Items | orderBy : 'name'"
+          ng-bind ="item.name "
+          ng-class="hoverclass"
+          ng-mouseover ="onhover()"
+          ng-mouseleave ="onleave()" >
 
+  </option>
 </select>
+
+<button class="submit" ng-click= "submit()">submit</button>
 </div>
